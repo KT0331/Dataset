@@ -1,0 +1,12 @@
+cifar10/train/*.jpg
+cifar10/val/*.jpg
+cifar10/test/*.jpg
+cifar100/train/*.png
+cifar100/val/*.png
+cifar100/test/*.png
+GTSRB/train/0*
+GTSRB/val/0*
+GTSRB/test/*.jpg
+ILSVRC2012/train/n*
+ILSVRC2012/val/ILSVRC2012*
+ILSVRC2012/ILSVRC2012_*
