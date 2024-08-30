@@ -29,76 +29,76 @@ if os.path.exists(loc_3) == False:
 #测试集有10000张图片
 def cifar10_img(file_dir):
     
-    # # 訓練集
-    # filenames = []
-    # labels = []
+    # 訓練集
+    filenames = []
+    labels = []
 
-    # for i in range(1,5):
-    #     data_name = file_dir + '/'+'data_batch_'+ str(i)
-    #     data_dict = unpickle(data_name)
-    #     print(data_name + ' is processing')
+    for i in range(1,5):
+        data_name = file_dir + '/'+'data_batch_'+ str(i)
+        data_dict = unpickle(data_name)
+        print(data_name + ' is processing')
 
-    #     for j in range(10000):
-    #         img = np.reshape(data_dict[b'data'][j],(3,32,32))
-    #         img = np.transpose(img,(1,2,0))
-    #         #通道顺序为RGB
-    #         img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-    #         #要改成不同的形式的文件只需要将文件后缀修改即可
-    #         img_name = loc_1 + '/' + str(data_dict[b'labels'][j]) + str((i)*10000 + j) + '.jpg'
-    #         cv2.imwrite(img_name,img)
-    #         filenames.append(str(data_dict[b'labels'][j]) + str((i)*10000 + j) + '.jpg')
-    #         labels.append(data_dict[b'labels'][j])
+        for j in range(10000):
+            img = np.reshape(data_dict[b'data'][j],(3,32,32))
+            img = np.transpose(img,(1,2,0))
+            #通道顺序为RGB
+            img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+            #要改成不同的形式的文件只需要将文件后缀修改即可
+            img_name = loc_1 + '/' + str(data_dict[b'labels'][j]) + str((i)*10000 + j) + '.jpg'
+            cv2.imwrite(img_name,img)
+            filenames.append(str(data_dict[b'labels'][j]) + str((i)*10000 + j) + '.jpg')
+            labels.append(data_dict[b'labels'][j])
 
-    #     print(data_name + ' is done')
+        print(data_name + ' is done')
 
-    # annotations = {
-    #                 "filenames": filenames,
-    #                 "labels": labels
-    #             }
+    annotations = {
+                    "filenames": filenames,
+                    "labels": labels
+                }
 
-    # # 指定要写入的文件名和路径
-    # file_path = os.path.join(loc_1, "annotations.json")
+    # 指定要写入的文件名和路径
+    file_path = os.path.join(loc_1, "annotations.json")
 
-    # # 将数据写入 JSON 文件
-    # with open(file_path, "w") as json_file:
-    #     json.dump(annotations, json_file, indent=4)
+    # 将数据写入 JSON 文件
+    with open(file_path, "w") as json_file:
+        json.dump(annotations, json_file, indent=4)
 
-    # print('Train Set is Finished')
+    print('Train Set is Finished')
 
-    # # 驗證集
-    # filenames = []
-    # labels = []
+    # 驗證集
+    filenames = []
+    labels = []
     
-    # data_name = file_dir + '/'+'data_batch_'+ str(5)
-    # data_dict = unpickle(data_name)
-    # print(data_name + ' is processing')
+    data_name = file_dir + '/'+'data_batch_'+ str(5)
+    data_dict = unpickle(data_name)
+    print(data_name + ' is processing')
 
-    # for j in range(10000):
-    #     img = np.reshape(data_dict[b'data'][j],(3,32,32))
-    #     img = np.transpose(img,(1,2,0))
-    #     #通道顺序为RGB
-    #     img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-    #     #要改成不同的形式的文件只需要将文件后缀修改即可
-    #     img_name = loc_2 + '/' + str(data_dict[b'labels'][j]) + str((5)*10000 + j) + '.jpg'
-    #     cv2.imwrite(img_name,img)
-    #     filenames.append(str(data_dict[b'labels'][j]) + str((5)*10000 + j) + '.jpg')
-    #     labels.append(data_dict[b'labels'][j])
+    for j in range(10000):
+        img = np.reshape(data_dict[b'data'][j],(3,32,32))
+        img = np.transpose(img,(1,2,0))
+        #通道顺序为RGB
+        img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+        #要改成不同的形式的文件只需要将文件后缀修改即可
+        img_name = loc_2 + '/' + str(data_dict[b'labels'][j]) + str((5)*10000 + j) + '.jpg'
+        cv2.imwrite(img_name,img)
+        filenames.append(str(data_dict[b'labels'][j]) + str((5)*10000 + j) + '.jpg')
+        labels.append(data_dict[b'labels'][j])
 
-    # print(data_name + ' is done')
+    print(data_name + ' is done')
 
-    # annotations = {
-    #                 "filenames": filenames,
-    #                 "labels": labels
-    #             }
+    annotations = {
+                    "filenames": filenames,
+                    "labels": labels
+                }
 
-    # # 指定要写入的文件名和路径
-    # file_path = os.path.join(loc_2, "annotations.json")
+    # 指定要写入的文件名和路径
+    file_path = os.path.join(loc_2, "annotations.json")
 
-    # # 将数据写入 JSON 文件
-    # with open(file_path, "w") as json_file:
-    #     json.dump(annotations, json_file, indent=4)
+    # 将数据写入 JSON 文件
+    with open(file_path, "w") as json_file:
+        json.dump(annotations, json_file, indent=4)
 
-    # print('Validation Set is Finished')
+    print('Validation Set is Finished')
 
     # 測試集
     filenames = []
@@ -138,8 +138,5 @@ def cifar10_img(file_dir):
 
     
 if __name__ == '__main__':
-    file_dir = './origin/cifar-10-batches-py'
+    file_dir = './cifar-10-batches-py'
     cifar10_img(file_dir)
-
-    # file = './cifar-10-batches-py/'
-    # unpickle(file)
