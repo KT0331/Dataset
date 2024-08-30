@@ -116,8 +116,8 @@ def cifar10_img(file_dir):
         # 要改成不同的形式的文件只需要将文件后缀修改即可
         img_name = loc_3 + '/' + str(test_dict[b'labels'][m]) + str(10000 + m) + '.jpg'
         cv2.imwrite(img_name, img)
-        filenames.append(str(data_dict[b'labels'][m]) + str(10000 + m) + '.jpg')
-        labels.append(data_dict[b'labels'][m])
+        filenames.append(str(test_dict[b'labels'][m]) + str(10000 + m) + '.jpg')
+        labels.append(test_dict[b'labels'][m])
     print(test_data_name + ' is done')
 
     annotations = {
